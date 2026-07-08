@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bragadish — Full Stack Developer</title>
+<meta name="description" content="Bragadish — Full Stack Developer building intelligent, scalable, and beautiful digital experiences with Python, FastAPI, and modern web technology.">
+<meta name="theme-color" content="#0a0e1a">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<!-- ================= SCROLL PROGRESS ================= -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ================= CURSOR ================= -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ================= ANIMATED BACKGROUND ================= -->
+<div class="bg-layer" aria-hidden="true">
+  <canvas id="networkCanvas"></canvas>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="grid-overlay"></div>
+  <div class="stars" id="stars"></div>
+</div>
+
+<!-- ================= TOASTS ================= -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <span class="logo-bracket">&lt;</span>Bragadish<span class="logo-bracket">/&gt;</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active" data-section="home"><span class="nav-index"></span>Home</a>
+      <a href="#about" class="nav-link" data-section="about"><span class="nav-index"></span>About</a>
+      <a href="#skills" class="nav-link" data-section="skills"><span class="nav-index"></span>Skills</a>
+      <a href="#projects" class="nav-link" data-section="projects"><span class="nav-index"></span>Projects</a>
+      <a href="#education" class="nav-link" data-section="education"><span class="nav-index"></span>Education</a>
+      <a href="#certifications" class="nav-link" data-section="certifications"><span class="nav-index"></span>Certifications</a>
+      <a href="#resume" class="nav-link" data-section="resume"><span class="nav-index"></span>Resume</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fa-solid fa-sun theme-icon sun"></i>
+        <i class="fa-solid fa-moon theme-icon moon"></i>
+        <span class="theme-toggle-ball"></span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MOBILE MENU ================= -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" class="mobile-link">Home</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#skills" class="mobile-link">Skills</a>
+  <a href="#projects" class="mobile-link">Projects</a>
+  <a href="#education" class="mobile-link">Education</a>
+  <a href="#certifications" class="mobile-link">Certifications</a>
+  <a href="#resume" class="mobile-link">Resume</a>
+</div>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <div class="hero-text" data-reveal>
+      <h1 class="hero-name">Hi, I'm <span class="gradient-text">Bragadish</span></h1>
+      <h2 class="hero-role">
+        <span class="typing-prefix">&gt;</span>
+        <span id="typedText" class="typed-text"></span><span class="typing-cursor">_</span>
+      </h2>
+      <p class="hero-tagline">Building intelligent, scalable, and beautiful digital experiences.</p>
+
+      <div class="hero-cta">
+        <a href="Bragadish_resume.pdf" class="btn btn-primary magnetic" download>
+          <span class="btn-ripple"></span>
+          <i class="fa-solid fa-download"></i> Download Resume
+        </a>
+        <a href="#certifications" class="btn btn-outline magnetic">
+          <span class="btn-ripple"></span>
+          <i class="fa-solid fa-award"></i> Certifications
+        </a>
+      </div>
+
+      <div class="hero-social">
+        <a href="https://github.com/bragadishannadurai-cloud" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/bragadish-annadurai?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/mr_bragadish_as?igsh=d3N5NmZudGNtcm10" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="hero-visual" data-reveal>
+      <div class="photo-frame">
+        <div class="photo-ring"></div>
+        <div class="photo-placeholder">
+          <img src="mine.jpeg" alt="Bragadish">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="scroll-indicator" id="scrollIndicator" aria-label="Scroll down">
+    <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+    <span class="scroll-label">Scroll</span>
+  </button>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section">
+  <div class="section-head" data-reveal>
+    <span class="section-eyebrow">About</span>
+    <h2 class="section-title">Get to know <span class="gradient-text">me</span></h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-visual" data-reveal>
+      <div class="about-card glass">
+        <i class="fa-solid fa-brain about-icon"></i>
+        <p class="about-stat-num" data-counter="3">0</p>
+        <p class="about-stat-label">Years of hands-on building</p>
+      </div>
+    </div>
+
+    <div class="about-content" data-reveal>
+      <p class="about-paragraph">
+        I'm a passionate <strong>Full Stack Developer</strong> currently pursuing a
+        <strong> B.Tech in Artificial Intelligence</strong>, where I sit at the intersection
+        of modern web development and applied AI. I like taking an idea from a rough sketch
+        to a production-ready product — designing the interface, building the backend, and
+        wiring the two together so the whole thing feels effortless to use.
+      </p>
+      <p class="about-paragraph">
+        My toolkit centers on <strong>Python</strong> and <strong>FastAPI</strong> on the backend,
+        paired with clean, modern <strong>HTML, CSS, and JavaScript</strong> on the front — with
+        <strong>MongoDB</strong> handling the data layer. I care deeply about clean architecture,
+        readable code, and interfaces that feel fast and alive.
+      </p>
+      <p class="about-paragraph">
+        Beyond the stack, I'm driven by curiosity — I'm constantly exploring new frameworks,
+        experimenting with AI-powered applications, and looking for real-world problems worth
+        solving. Whether it's a classroom platform, an AI assistant, or a tool that saves someone
+        an hour a week, I want to build things that actually matter.
+      </p>
+
+      <div class="about-highlights">
+        <div class="highlight-chip"><i class="fa-solid fa-code"></i> Clean Code</div>
+        <div class="highlight-chip"><i class="fa-solid fa-lightbulb"></i> Innovation</div>
+        <div class="highlight-chip"><i class="fa-solid fa-arrows-rotate"></i> Continuous Learning</div>
+        <div class="highlight-chip"><i class="fa-solid fa-puzzle-piece"></i> Problem Solving</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="section">
+  <div class="section-head" data-reveal>
+    <span class="section-eyebrow">Skills</span>
+    <h2 class="section-title">My <span class="gradient-text">tech stack</span></h2>
+  </div>
+
+  <div class="skills-groups">
+
+    <div class="skill-group" data-reveal>
+      <h3 class="skill-group-title"><i class="fa-solid fa-terminal"></i> Languages</h3>
+      <div class="skill-cards">
+        <div class="skill-card glass"><i class="fa-brands fa-python skill-icon"></i><span>Python</span><div class="skill-bar"><div class="skill-fill" data-level="90"></div></div></div>
+        <div class="skill-card glass"><i class="fa-brands fa-html5 skill-icon"></i><span>HTML5</span><div class="skill-bar"><div class="skill-fill" data-level="95"></div></div></div>
+        <div class="skill-card glass"><i class="fa-brands fa-css3-alt skill-icon"></i><span>CSS3</span><div class="skill-bar"><div class="skill-fill" data-level="92"></div></div></div>
+        <div class="skill-card glass"><i class="fa-brands fa-square-js skill-icon"></i><span>JavaScript</span><div class="skill-bar"><div class="skill-fill" data-level="88"></div></div></div>
+      </div>
+    </div>
+
+    <div class="skill-group" data-reveal>
+      <h3 class="skill-group-title"><i class="fa-solid fa-server"></i> Backend</h3>
+      <div class="skill-cards">
+        <div class="skill-card glass"><i class="fa-solid fa-bolt skill-icon"></i><span>FastAPI</span><div class="skill-bar"><div class="skill-fill" data-level="88"></div></div></div>
+      </div>
+    </div>
+
+    <div class="skill-group" data-reveal>
+      <h3 class="skill-group-title"><i class="fa-solid fa-database"></i> Database</h3>
+      <div class="skill-cards">
+        <div class="skill-card glass"><i class="fa-solid fa-leaf skill-icon"></i><span>MongoDB</span><div class="skill-bar"><div class="skill-fill" data-level="85"></div></div></div>
+      </div>
+    </div>
+
+    <div class="skill-group" data-reveal>
+      <h3 class="skill-group-title"><i class="fa-solid fa-toolbox"></i> Tools</h3>
+      <div class="skill-cards">
+        <div class="skill-card glass"><i class="fa-brands fa-git-alt skill-icon"></i><span>Git</span><div class="skill-bar"><div class="skill-fill" data-level="90"></div></div></div>
+        <div class="skill-card glass"><i class="fa-brands fa-github skill-icon"></i><span>GitHub</span><div class="skill-bar"><div class="skill-fill" data-level="90"></div></div></div>
+        <div class="skill-card glass"><i class="fa-solid fa-code skill-icon"></i><span>VS Code</span><div class="skill-bar"><div class="skill-fill" data-level="95"></div></div></div>
+      </div>
+    </div>
+
+    <div class="skill-group" data-reveal>
+      <h3 class="skill-group-title"><i class="fa-solid fa-people-group"></i> Soft Skills</h3>
+      <div class="soft-skill-rings">
+        <div class="ring-card">
+          <svg class="progress-ring" viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52" data-value="92"></circle></svg>
+          <span class="ring-percent">92%</span>
+          <p>Problem Solving</p>
+        </div>
+        <div class="ring-card">
+          <svg class="progress-ring" viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52" data-value="88"></circle></svg>
+          <span class="ring-percent">88%</span>
+          <p>Teamwork</p>
+        </div>
+        <div class="ring-card">
+          <svg class="progress-ring" viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52" data-value="90"></circle></svg>
+          <span class="ring-percent">90%</span>
+          <p>Communication</p>
+        </div>
+        <div class="ring-card">
+          <svg class="progress-ring" viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52" data-value="85"></circle></svg>
+          <span class="ring-percent">85%</span>
+          <p>Leadership</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="section">
+  <div class="section-head" data-reveal>
+    <span class="section-eyebrow">Projects</span>
+    <h2 class="section-title">Things I've <span class="gradient-text">built</span></h2>
+  </div>
+
+  <div class="projects-grid">
+
+    <article class="project-card glass" data-reveal>
+      <div class="project-image">
+        <i class="fa-solid fa-chalkboard-user project-placeholder-icon"></i>
+        <div class="project-overlay">
+          <a href="https://github.com/bragadishannadurai/smart-classroom-ai.git" class="btn-small btn-small-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>Smart Classroom System</h3>
+        <p>An intelligent classroom management platform featuring attendance tracking, AI-powered analytics, digital assignments, student performance monitoring, and interactive dashboards.</p>
+        <div class="tech-badges">
+          <span>Python</span><span>FastAPI</span><span>MongoDB</span><span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card glass" data-reveal>
+      <div class="project-image">
+        <i class="fa-solid fa-robot project-placeholder-icon"></i>
+        <div class="project-overlay">
+          <a href="https://github.com/bragadishannadurai/hospital-chatbot.git" class="btn-small btn-small-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>AI Chat Assistant</h3>
+        <p>A conversational assistant built on FastAPI that answers questions, summarizes documents, and integrates with external APIs — with a clean, streaming chat interface.</p>
+        <div class="tech-badges">
+          <span>Python</span><span>FastAPI</span><span>JavaScript</span><span>MongoDB</span>
+        </div>
+      </div>
+    </article>
+
+    
+
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education" class="section">
+  <div class="section-head" data-reveal>
+    <span class="section-eyebrow">Education</span>
+    <h2 class="section-title">My <span class="gradient-text">learning path</span></h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-item" data-reveal>
+      <div class="timeline-dot"></div>
+      <div class="timeline-card glass">
+        <span class="timeline-year">In Progress</span>
+        <h3>B.Tech in Artificial Intelligence and Data Science</h3>
+        <p>Focused on machine learning fundamentals, applied AI, and software engineering — while building full stack projects on the side to apply what I learn in real products.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item" data-reveal>
+      <div class="timeline-dot"></div>
+      <div class="timeline-card glass">
+        <span class="timeline-year">Ongoing</span>
+        <h3>Full Stack &amp; Backend Engineering</h3>
+        <p>Self-driven deep dives into FastAPI, MongoDB, system design, and clean architecture — turning coursework into shippable projects.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item" data-reveal>
+      <div class="timeline-dot"></div>
+      <div class="timeline-card glass">
+        <span class="timeline-year">Foundation</span>
+        <h3>Higher Secondary Education</h3>
+        <p>Built a strong foundation in mathematics and computer science that sparked an early interest in programming and problem-solving.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
+<section id="certifications" class="section">
+  <div class="section-head" data-reveal>
+    <span class="section-eyebrow">Certifications</span>
+    <h2 class="section-title">Certified <span class="gradient-text">knowledge</span></h2>
+  </div>
+
+  <div class="cert-card glass" data-reveal>
+    <div class="cert-top">
+        <span class="cert-icon">
+            <i class="fa-brands fa-python"></i>
+        </span>
+        <span class="cert-year">2025</span>
+    </div>
+
+    <h3>Data Science Analyst Intern</h3>
+    <p class="cert-issuer">Vebbox Software Solutions Pvt. Ltd.</p>
+
+    <p class="cert-desc">
+        Completed a Data Science Analyst internship involving data cleaning,
+        exploratory data analysis (EDA), data visualization, machine learning,
+        and building predictive models using Python, Pandas, NumPy,
+        Matplotlib, Seaborn, and Scikit-learn.
+    </p>
+
+    <a href="1000646648.pdf" class="cert-link">
+        View Internship Certificate
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
+</div>
+    
+
+    <div class="cert-card glass" data-reveal>
+      <div class="cert-top">
+        <span class="cert-icon"><i class="fa-solid fa-leaf"></i></span>
+        <span class="cert-year">2024</span>
+      </div>
+      <h3>MongoDB Basics</h3>
+      <p class="cert-issuer">MongoDB University</p>
+      <p class="cert-desc">Hands-on training in document modeling, aggregation pipelines, and index optimization.</p>
+      <a href="https://www.credly.com/badges/285c38b6-adc5-4c29-b586-3472e35d5b09/public_url" class="cert-link">View credential <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+
+    <div class="cert-card glass" data-reveal>
+      <div class="cert-top">
+        <span class="cert-icon"><i class="fa-solid fa-brain"></i></span>
+        <span class="cert-year">2024</span>
+      </div>
+      <h3>Introduction to Artificial Intelligence</h3>
+      <p class="cert-issuer">IBM Skillbuild</p>
+      <p class="cert-desc">Explored core AI concepts, machine learning workflows, and real-world use cases.</p>
+      <a href="https://www.credly.com/badges/2e9e4fa8-7845-4298-86dd-f353fae4c1ed/public_url" class="cert-link">View credential <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+</section>
+
+<!-- ================= RESUME ================= -->
+<section id="resume" class="section resume-section">
+  <div class="resume-glass glass" data-reveal>
+    <i class="fa-solid fa-file-arrow-down resume-icon"></i>
+    <h2 class="section-title">Want the <span class="gradient-text">full picture?</span></h2>
+    <p>Grab a copy of my resume for a complete look at my experience, skills, and projects.</p>
+    <a href="Bragadish_resume.pdf" class="btn btn-primary btn-glow magnetic" download>
+      <span class="btn-ripple"></span>
+      <i class="fa-solid fa-download"></i> Download Resume
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p>Designed &amp; Developed by <span class="gradient-text">Bragadish</span> &copy; <span id="year"></span></p>
+    <div class="footer-social">
+      <a href="https://github.com/bragadishannadurai-cloud" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/bragadish-annadurai?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/mr_bragadish_as?igsh=d3N5NmZudGNtcm10" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
